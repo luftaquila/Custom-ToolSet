@@ -12,7 +12,7 @@ SetDefaultKeyboard(LocaleID) {
 	}
 }
 USA := 0x0409
-KOR := 0x0412
+KOR := 0x0412 
 
 toggle := False
 
