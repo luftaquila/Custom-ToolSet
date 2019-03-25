@@ -18,18 +18,18 @@ VK19::
 	Else If (p = "00")
 		 Send ^c
 	Else If (p = "1")
+		 Send ^x
+	Else If (p= "01")
 		 Send {AppsKey}
-	;Else
-	;	 MsgBox Press pattern %p%
+	Sleep 150
 Return
 
 Space & J:: Left
 Space & K:: Down
 Space & I:: Up
 Space & L:: Right
-Tab & J:: Home
-Tab & L:: End
-Tab:: Send {Tab}
+CapsLock & J:: Send, {CapsLock}{Home}
+CapsLock & L:: Send, {CapsLock}{End}
 Space:: Send {Space}
 
 ~LButton & RButton Up::Send {XButton2}
