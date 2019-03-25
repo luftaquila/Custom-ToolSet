@@ -10,14 +10,15 @@ Return
 <+Space::VK15
 VK15::<+Space
 VK15::Run cmd
+
 VK19::
 	p := Morse()
 	If (p = "0")
 		 Send ^v
 	Else If (p = "00")
 		 Send ^c
-	;Else If (p = "01")
-	;	 MsgBox Short+Long press
+	Else If (p = "1")
+		 Send {AppsKey}
 	;Else
 	;	 MsgBox Press pattern %p%
 Return
@@ -26,6 +27,9 @@ Space & J:: Left
 Space & K:: Down
 Space & I:: Up
 Space & L:: Right
+Tab & J:: Home
+Tab & L:: End
+Tab:: Send {Tab}
 Space:: Send {Space}
 
 ~LButton & RButton Up::Send {XButton2}
