@@ -17,20 +17,19 @@ VK19::
 		 Send ^v
 	Else If (p = "00")
 		 Send ^c
-	Else If (p = "1")
+	Else If (p = "000")
 		 Send ^x
-	Else If (p= "01")
+	Else
 		 Send {AppsKey}
-	Sleep 150
 Return
 
-Space & J:: Left
-Space & K:: Down
-Space & I:: Up
-Space & L:: Right
-CapsLock & J:: Send, {CapsLock}{Home}
-CapsLock & L:: Send, {CapsLock}{End}
-Space:: Send {Space}
+CapsLock & J:: Left
+CapsLock & K:: Down
+CapsLock & I:: Up
+CapsLock & L:: Right
+` & J:: Home
+` & L:: End
+`:: Send ```
 
 ~LButton & RButton Up::Send {XButton2}
 ~RButton & LButton Up::Send {XButton1}
@@ -63,8 +62,7 @@ RShift::BS
 :*C:psi`t::¥÷
 :*C:omega`t::¥ø
 :*R:kk`t::rokaFKAk512#
-:*R:nn`t::rokaFNAv512#
-:*R:]\::rokaFCom512#
+:*R:@`t::luftaquila@protonmail.ch
 :*C:Alpha`t::¥Á
 :*C:Beta`t::¥Â
 :*C:Gamma`t::¥Ã
@@ -94,11 +92,13 @@ RShift::BS
 :*:bheart::¢¾
 :*:wstar::¡Ù
 :*:bstar::¡Ú
+:*C:tld::~
+:*C:ud::_
 
-:*:arru::¡è
-:*:arrd::¡é
-:*:arrl::¡ç
-:*:arrr::¡æ
+:*:uarr::¡è
+:*:darr::¡é
+:*:larr::¡ç
+:*:rarr::¡æ
 
 Morse(timeout = 400) { ;by Laszo -> http://www.autohotkey.com/forum/viewtopic.php?t=16951 (Modified to return: KeyWait %key%, T%tout%)
    tout := timeout/1000
