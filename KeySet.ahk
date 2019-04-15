@@ -30,6 +30,7 @@ CapsLock & L:: Right
 ` & J:: Home
 ` & L:: End
 `:: Send ```
+<+`:: ~
 
 ~LButton & RButton Up::Send {XButton2}
 ~RButton & LButton Up::Send {XButton1}
@@ -61,8 +62,6 @@ RShift::BS
 :*C:chi`t::¥ö
 :*C:psi`t::¥÷
 :*C:omega`t::¥ø
-:*R:kk`t::rokaFKAk512#
-:*R:@`t::luftaquila@protonmail.ch
 :*C:Alpha`t::¥Á
 :*C:Beta`t::¥Â
 :*C:Gamma`t::¥Ã
@@ -92,13 +91,18 @@ RShift::BS
 :*:bheart::¢¾
 :*:wstar::¡Ù
 :*:bstar::¡Ú
-:*C:tld::~
 :*C:ud::_
 
 :*:uarr::¡è
 :*:darr::¡é
 :*:larr::¡ç
 :*:rarr::¡æ
+
+:*R:kk`t::rokaFKAk512#
+:*R:pr`t::rokaFPRo512#
+:*R:lu`t::luftaquila
+:*R:em`t::luftaquila@protonmail.ch
+:*R:pv`t::perfidemvolo
 
 Morse(timeout = 400) { ;by Laszo -> http://www.autohotkey.com/forum/viewtopic.php?t=16951 (Modified to return: KeyWait %key%, T%tout%)
    tout := timeout/1000
