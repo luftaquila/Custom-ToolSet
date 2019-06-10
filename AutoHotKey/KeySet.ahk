@@ -11,6 +11,14 @@ Return
 VK15::<+Space
 VK15::Run cmd
 
+<+CapsLock::CapsLock
+CapsLock::LControl
+
+LAlt & J:: Left
+LAlt & K:: Down
+LAlt & I:: Up
+LAlt & L:: Right
+
 VK19::
 	p := Morse()
 	If (p = "0")
@@ -23,20 +31,12 @@ VK19::
 		 Send {AppsKey}
 Return
 
-CapsLock & J:: Left
-CapsLock & K:: Down
-CapsLock & I:: Up
-CapsLock & L:: Right
-` & J:: Home
-` & L:: End
-`:: Send ```
-<+`:: ~
-
 ~LButton & RButton Up::Send {XButton2}
 ~RButton & LButton Up::Send {XButton1}
 ^+`::Run, Process Explorer.lnk, C:\Users\LUFT-AQUILA\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 
 RShift::BS
+BS::LControl
 
 :*C:alpha`t::ес
 :*C:beta`t::ет
@@ -104,7 +104,7 @@ RShift::BS
 :*R:em`t::luftaquila@protonmail.ch
 :*R:pv`t::perfidemvolo
 
-Morse(timeout = 400) { ;by Laszo -> http://www.autohotkey.com/forum/viewtopic.php?t=16951 (Modified to return: KeyWait %key%, T%tout%)
+Morse(timeout = 80) { ;by Laszo -> http://www.autohotkey.com/forum/viewtopic.php?t=16951 (Modified to return: KeyWait %key%, T%tout%)
    tout := timeout/1000
    key := RegExReplace(A_ThisHotKey,"[\*\~\$\#\+\!\^]")
    IfInString, key, %A_Space%
