@@ -1,0 +1,1 @@
+putty luftaquila.iptime.org -l pi -pw luftaquila && exit

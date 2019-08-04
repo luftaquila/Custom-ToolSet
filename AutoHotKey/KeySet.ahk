@@ -1,4 +1,4 @@
-#SingleInstance force
+ï»¿#SingleInstance force
 menu, tray, NoStandard
 menu, tray, add, Exit
 Return
@@ -9,7 +9,7 @@ Return
 
 <+Space::VK15
 VK15::<+Space
-VK15::Run cmd
+VK15::Run SCHTASKS.EXE /RUN /TN "\UAC Whitelist\CMD"
 
 <+CapsLock::CapsLock
 CapsLock::LControl
@@ -19,17 +19,7 @@ LAlt & K:: Down
 LAlt & I:: Up
 LAlt & L:: Right
 
-VK19::
-	p := Morse()
-	If (p = "0")
-		 Send ^v
-	Else If (p = "00")
-		 Send ^c
-	Else If (p = "000")
-		 Send ^x
-	Else
-		 Send {AppsKey}
-Return
+VK19::Delete
 
 ~LButton & RButton Up::Send {XButton2}
 ~RButton & LButton Up::Send {XButton1}
@@ -38,65 +28,79 @@ Return
 RShift::BS
 BS::LControl
 
-:*C:alpha`t::¥á
-:*C:beta`t::¥â
-:*C:gamma`t::¥ã
-:*C:delta`t::¥ä
-:*C:epsilon`t::¥å
-:*C:zeta`t::¥æ
-:*C:eta`t::¥ç
-:*C:theta`t::¥è
-:*C:iota`t::¥é
-:*C:kappa`t::¥ê
-:*C:lambda`t::¥ë
-:*C:mu`t::¥ì
-:*C:nu`t::¥í
-:*C:xi`t::¥î
-:*C:omicron`t::¥ï
-:*C:pi`t::¥ð
-:*C:rho`t::¥ñ
-:*C:sigma`t::¥ò
-:*C:tau`t::¥ó
-:*C:upsilon`t::¥ô
-:*C:phi`t::¥õ
-:*C:chi`t::¥ö
-:*C:psi`t::¥÷
-:*C:omega`t::¥ø
-:*C:Alpha`t::¥Á
-:*C:Beta`t::¥Â
-:*C:Gamma`t::¥Ã
-:*C:Delta`t::¥Ä
-:*C:Epsilon`t::¥Å
-:*C:Zeta`t::¥Æ
-:*C:Eta`t::¥Ç
-:*C:Theta`t::¥È
-:*C:Iota`t::¥É
-:*C:Kappa`t::¥Ê
-:*C:Lambda`t::¥Ë
-:*C:Mu`t::¥Ì
-:*C:Nu`t::¥Í
-:*C:Xi`t::¥Î
-:*C:Omicron`t::¥Ï
-:*C:Pi`t::¥Ð
-:*C:Rho`t::¥Ñ
-:*C:Sigma`t::¥Ò
-:*C:Tau`t::¥Ó
-:*C:Upsilon`t::¥Ô
-:*C:Phi`t::¥Õ
-:*C:Chi`t::¥Ö
-:*C:Psi`t::¥×
-:*C:Omega`t::¥Ø
+#z:: HideShowTaskbar(hide := !hide)
+HideShowTaskbar(action) {
+   static ABM_SETSTATE := 0xA, ABS_AUTOHIDE := 0x1, ABS_ALWAYSONTOP := 0x2
+   VarSetCapacity(APPBARDATA, size := 2*A_PtrSize + 2*4 + 16 + A_PtrSize, 0)
+   NumPut(size, APPBARDATA), NumPut(WinExist("ahk_class Shell_TrayWnd"), APPBARDATA, A_PtrSize)
+   NumPut(action ? ABS_AUTOHIDE : ABS_ALWAYSONTOP, APPBARDATA, size - A_PtrSize)
+   DllCall("Shell32\SHAppBarMessage", UInt, ABM_SETSTATE, Ptr, &APPBARDATA)
+}
 
-:*:wheart::¢½
-:*:bheart::¢¾
-:*:wstar::¡Ù
-:*:bstar::¡Ú
-:*C:ud::_
+:*C:alpha`t::Î±
+:*C:beta`t::Î²
+:*C:gamma`t::Î³
+:*C:delta`t::Î´
+:*C:epsilon`t::Îµ
+:*C:zeta`t::Î¶
+:*C:eta`t::Î·
+:*C:theta`t::Î¸
+:*C:iota`t::Î¹
+:*C:kappa`t::Îº
+:*C:lambda`t::Î»
+:*C:mu`t::Î¼
+:*C:nu`t::Î½
+:*C:xi`t::Î¾
+:*C:omicron`t::Î¿
+:*C:pi`t::Ï€
+:*C:rho`t::Ï
+:*C:sigma`t::Ïƒ
+:*C:tau`t::Ï„
+:*C:upsilon`t::Ï…
+:*C:phi`t::Ï†
+:*C:chi`t::Ï‡
+:*C:psi`t::Ïˆ
+:*C:omega`t::Ï‰
+:*C:Alpha`t::Î‘
+:*C:Beta`t::Î’
+:*C:Gamma`t::Î“
+:*C:Delta`t::Î”
+:*C:Epsilon`t::Î•
+:*C:Zeta`t::Î–
+:*C:Eta`t::Î—
+:*C:Theta`t::Î˜
+:*C:Iota`t::Î™
+:*C:Kappa`t::Îš
+:*C:Lambda`t::Î›
+:*C:Mu`t::Îœ
+:*C:Nu`t::Î
+:*C:Xi`t::Îž
+:*C:Omicron`t::ÎŸ
+:*C:Pi`t::Î 
+:*C:Rho`t::Î¡
+:*C:Sigma`t::Î£
+:*C:Tau`t::Î¤
+:*C:Upsilon`t::Î¥
+:*C:Phi`t::Î¦
+:*C:Chi`t::Î§
+:*C:Psi`t::Î¨
+:*C:Omega`t::Î©
 
-:*:uarr::¡è
-:*:darr::¡é
-:*:larr::¡ç
-:*:rarr::¡æ
+:*:wheart::â™¡
+:*:bheart::â™¥
+:*:wstar::â˜†
+:*:bstar::â˜…
+:*C:ud`t::_
+:*:wdt::âš¬
+
+:*:uarr::â†‘
+:*:darr::â†“
+:*:larr::â†
+:*:rarr::â†’
+:*:ularr::â†–
+:*:urarr::â†—
+:*:dlarr::â†™
+:*:drarr::â†˜
 
 :*R:kk`t::rokaFKAk512#
 :*R:pr`t::rokaFPRo512#
