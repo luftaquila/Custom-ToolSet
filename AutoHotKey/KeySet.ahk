@@ -7,6 +7,7 @@ Exit:
 	exitapp
 Return
 
+#Space::
 <+Space::VK15
 VK15::<+Space
 VK15::Run SCHTASKS.EXE /RUN /TN "\UAC Whitelist\CMD"
